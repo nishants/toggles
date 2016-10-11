@@ -6,14 +6,16 @@ describe("Toggles ->" ,function(){
       enabledElement,
       disabledElement,
       createElement,
-      promiseOf;
+      promiseOf,
+      http;
 
   beforeEach(function(){
     module('toggles');
 
-    inject(function($compile, $rootScope, toggles, $q){
+    inject(function($compile, $rootScope, toggles, $q, $httpBackend){
       service = toggles;
       scope   = $rootScope.$new();
+      http    = $httpBackend;
 
       promiseOf =  function(data){
         return $q(function(resolve, reject) {
@@ -42,7 +44,7 @@ describe("Toggles ->" ,function(){
 
   });
 
-  it('should remove element if feature if disabled', function () {
+  it('should remove element if feature is disabled', function () {
     service.init(promiseOf({
       "default": {
         "url"       : "localhost",
@@ -57,7 +59,7 @@ describe("Toggles ->" ,function(){
     expect(disabledElement.parent().length).toBe(0);
   });
 
-  it('should remove element if feature if disabled', function () {
+  it('should remove element if feature is disabled', function () {
     service.init(promiseOf({
       "default": {
         "url"       : "localhost",
@@ -67,6 +69,20 @@ describe("Toggles ->" ,function(){
         }
       }
     }));
+    createElement();
+    expect(enabledElement.parent().length).toBe(1);
+  });
+
+  it('should read config/features.json if not configured otherwise', function () {
+    http.expectGET("config/features.json").respond({
+          "url"       : "localhost",
+          "features"  : {
+            "espp"    :false,
+            "pre-ipo" : true
+          }
+        }
+    );
+
     createElement();
     expect(enabledElement.parent().length).toBe(1);
   });

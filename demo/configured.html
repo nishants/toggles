@@ -31,7 +31,11 @@
 <script src="../lib/toggles.js"></script>
 <script>
     var app = angular.module("feature-toggle", ["toggles"]);
-
+    app.run(['$http', 'toggles', function ($http, toggles) {
+        toggles.init($http.get("config/features.json").then(function(response){
+            return response.data;
+        }));
+    }]);
 
     app.controller("root", ["$scope","toggles",function($scope, toggles){
         toggles.getConfig().then(function(features){
