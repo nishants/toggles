@@ -1,4 +1,4 @@
-#Toggles
+#Toggles [![Build Status](https://travis-ci.org/nishants/toggles.svg?branch=master)](https://travis-ci.org/nishants/toggles)
 
 ## Installation
 
