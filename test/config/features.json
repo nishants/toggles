@@ -8,7 +8,7 @@
   },
 
   "regression": {
-    "url"       : "<regression-server-url>",
+    "url"       : "<regression-server-host>",
     "features"  : {
       "espp"    : true,
       "pre-ipp" : true
@@ -16,7 +16,7 @@
   },
 
   "production": {
-    "url"      : "shwab.com",
+    "url"      : "<production-server-host>",
     "features" : {
       "espp"    : false,
       "pre-ipp" : false
