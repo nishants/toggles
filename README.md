@@ -56,7 +56,7 @@ bower install toggles --save
 
 ## Default Configuration
 - By default it expects configuration file at relative path : [config/features.json](https://raw.githubusercontent.com/nishants/toggles/master/demo/config/features.json)
-- Be default all features are enabled
+- By default all features are enabled
 - To disable a feature use feature.json
 
 
