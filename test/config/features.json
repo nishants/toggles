@@ -1,0 +1,25 @@
+{
+  "default": {
+    "url"       : "localhost",
+    "features"  : {
+      "espp"    : false,
+      "pre-ipp" : true
+    }
+  },
+
+  "regression": {
+    "url"       : "<regression-server-url>",
+    "features"  : {
+      "espp"    : true,
+      "pre-ipp" : true
+    }
+  },
+
+  "production": {
+    "url"      : "shwab.com",
+    "features" : {
+      "espp"    : false,
+      "pre-ipp" : false
+    }
+  }
+}

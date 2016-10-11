@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="feature-toggle">
+
+<div>
+    <label>Environment : </label>
+    <input ng-bind="toggles.env">
+</div>
+<div>
+    <label>Features : </label>
+    <div ng-bind="toggles.features | jsonfied"></div>
+</div>
+
+<div class="ignore">
+    You cant see me.
+</div>
+
+
+<script src="../support/angular1.5.8.min.js"></script>
+<script>
+    var app = angular.module("feature-toggle", []);
+    app.run(['$rootScope', '$http', function ($rootScope, $http) {
+        $http.get("config/features.json").then(function(response){
+            var env         = "default",
+                features    = response.data[env]["features"],
+                disabled    = {};
+
+            for(var featureName in features){
+                if(!features[featureName]){
+                    disabled[featureName] = true;
+                }
+            }
+            $rootScope.toggles = {
+                env       : env,
+                features  : disabled
+            };
+        });
+    }]);
+
+    app.filter("jsonfied", [function(){
+        return function(json){
+            return JSON.stringify(json);
+        };
+    }]);
+
+    app.directive('ignore', function () {
+        return {
+            restrict : "C",
+            link: function (scope, element) {
+                element.remove();
+            }
+        };
+    });
+</script>
+</body>
+</html>
