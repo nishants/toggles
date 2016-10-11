@@ -38,13 +38,19 @@ beforeEach(function(){
   DOM = compile(scope, angular.element('' +
       '<div>' +
           '<span class="espp" feature="espp"></span>' +
+          '<label class="pre-ipo" feature="pre-ipo"></label>' +
       '</div>'
   ));
 
-  enabledElement = DOM.find('span');
+  disabledElement = DOM.find('span');
+  enabledElement = DOM.find('label');
   scope.$digest();
 });
 
 it('should remove element if feature if disabled', function () {
-  expect(enabledElement.parent().length).toBe(0);
+  expect(disabledElement.parent().length).toBe(0);
+});
+
+it('should remove element if feature if disabled', function () {
+  expect(enabledElement.parent().length).toBe(1);
 });
