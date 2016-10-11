@@ -61,11 +61,12 @@ bower install toggles --save
 
 
 ## Environments
-- Environment is deduced from the host name.
-- in fea
+- Environment is deduced from the host name in [config/features.json](https://raw.githubusercontent.com/nishants/toggles/master/test/config/features.json).
+- If hostname is not configured, default env is used.
+- It is recommended to not add host for production, use default env for production.
 
 ## Set Configuration from HTTP API
-- to use configuration from a server.invoke **toggles.init** with promise returning a json like **features.json**
+- to use configuration from a server.invoke **toggles.init** with promise returning a json like [config/features.json](https://raw.githubusercontent.com/nishants/toggles/master/test/config/features.json)
 ```javascript
     app.run(['$http', 'toggles', function ($http, toggles) {
         toggles.init($http.get("config/features").then(function(response){
