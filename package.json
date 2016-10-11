@@ -4,8 +4,8 @@
   "description": "angular module for featuer toggling",
   "main": "lib/toggles.js",
   "scripts": {
-    "publish": "node_modules/bower/bin/bower register toggles https://github.com/nishants/toggles.git",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/karma-cli/bin/karma start",
+    "publish": "node_modules/bower/bin/bower register toggles https://github.com/nishants/toggles.git"
   },
   "repository": {
     "type": "git",
@@ -25,10 +25,13 @@
     "url": "https://github.com/nishants/toggles/issues"
   },
   "homepage": "https://github.com/nishants/toggles#readme",
-  "dependencies": {
-    "bower": "^1.7.9"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "jasmine": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.0.2"
   }
 }
