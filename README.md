@@ -1,4 +1,4 @@
-#Toggles [![Build Status](https://travis-ci.org/nishants/toggles.svg?branch=master)](https://travis-ci.org/nishants/toggles)
+#Toggles [![Build Status](https://travis-ci.org/nishants/toggles.svg?branch=master)](https://travis-ci.org/nishants/toggles) [![Bower version](https://badge.fury.io/bo/toggles.svg)](https://badge.fury.io/bo/toggles)
 
 ## Installation
 
