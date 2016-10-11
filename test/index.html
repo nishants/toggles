@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
-<body ng-app="feature-toggle">
+<body ng-app="feature-toggle" ng-controller="root">
 
 <div>
     <label>Environment : </label>
-    <input ng-bind="toggles.env">
+    <label ng-bind="toggles.features.env"></label>
 </div>
 <div>
     <label>Features : </label>
-    <div ng-bind="toggles.features | jsonfied"></div>
+    <div ng-bind="toggles | jsonfied"></div>
 </div>
 
 <div feature="espp">
@@ -26,6 +26,13 @@
     var app = angular.module("feature-toggle", ["toggles"]);
     app.run(['$http', 'toggles', function ($http, toggles) {
         toggles.init($http.get("config/features.json"));
+    }]);
+
+    app.controller("root", ["$scope","toggles",function($scope, toggles){
+        toggles.getConfig().then(function(features){
+            $scope.toggles = {features: features};
+            window.toggles = {features: features};
+        });
     }]);
 
     app.filter("jsonfied", [function(){
