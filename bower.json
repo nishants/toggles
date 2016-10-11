@@ -1,0 +1,25 @@
+{
+  "name": "toggles",
+  "description": "angular module for featuer toggling",
+  "main": "toggles.js",
+  "authors": [
+    "nishants"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "toggles",
+    "feauter",
+    "toggle",
+    "featuretoggle",
+    "feature-toggle",
+    "toggling"
+  ],
+  "homepage": "https://github.com/nishants/toggles",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

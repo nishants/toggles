@@ -23,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/nishants/toggles/issues"
   },
-  "homepage": "https://github.com/nishants/toggles#readme"
+  "homepage": "https://github.com/nishants/toggles#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
 }
