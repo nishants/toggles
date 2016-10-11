@@ -32,8 +32,8 @@ describe("Toggles ->" ,function(){
     createElement = function(){
       DOM = compile(scope, angular.element('' +
           '<div>' +
-          '<span class="espp" feature="espp"></span>' +
-          '<label class="pre-ipo" feature="pre-ipo"></label>' +
+          '<span  feature="feature-one"></span>' +
+          '<label feature="feature-two"></label>' +
           '</div>'
       ));
 
@@ -49,8 +49,8 @@ describe("Toggles ->" ,function(){
       "default": {
         "url"       : "localhost",
         "features"  : {
-          "espp"    :false,
-          "pre-ipo" : true
+          "feature-one" : false,
+          "feature-two" : true
         }
       }
     }));
@@ -64,8 +64,8 @@ describe("Toggles ->" ,function(){
       "default": {
         "url"       : "localhost",
         "features"  : {
-          "espp"    :false,
-          "pre-ipo" : true
+          "feature-one" : false,
+          "feature-two" : true
         }
       }
     }));
@@ -77,14 +77,15 @@ describe("Toggles ->" ,function(){
     http.expectGET("config/features.json").respond({
           "url"       : "localhost",
           "features"  : {
-            "espp"    :false,
-            "pre-ipo" : true
+            "feature-one" : false,
+            "feature-two" : true
           }
         }
     );
 
     createElement();
     expect(enabledElement.parent().length).toBe(1);
+    //expect(disabledElement.parent().length).toBe(0);
   });
 
 });

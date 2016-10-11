@@ -5,8 +5,8 @@
   "main": "lib/toggles.js",
   "scripts": {
     "install" : "npm install && node_modules/bower/bin/bower install",
-    "test"    : "./node_modules/.bin/karma start  --single-run",
-    "watch"   : "node_modules/karma-cli/bin/karma start",
+    "test"    : "node_modules/karma-cli/bin/karma  start  --single-run",
+    "watch"   : "node_modules/karma-cli/bin/karma  start",
     "publish" : "node_modules/bower/bin/bower register toggles https://github.com/nishants/toggles.git"
   },
   "repository": {
