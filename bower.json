@@ -20,6 +20,13 @@
     "node_modules",
     "bower_components",
     "demo",
-    "test"
+    "test",
+
+    "support",
+    ".bower.json",
+    "bower.json",
+    "karma.conf.js",
+    "package.json",
+    "README.md"
   ]
 }
