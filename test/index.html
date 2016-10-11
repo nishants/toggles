@@ -15,7 +15,7 @@
     <div ng-bind="toggles.features | jsonfied"></div>
 </div>
 
-<div class="ignore">
+<div feature="espp">
     You cant see me.
 </div>
 
@@ -23,8 +23,8 @@
 <script src="../support/angular1.5.8.min.js"></script>
 <script>
     var app = angular.module("feature-toggle", []);
-    app.run(['$rootScope', '$http', function ($rootScope, $http) {
-        $http.get("config/features.json").then(function(response){
+    app.run(['$rootScope', '$http', 'toggles', function ($rootScope, $http, toggles) {
+        return $http.get("config/features.json").then(function(response){
             var env         = "default",
                 features    = response.data[env]["features"],
                 disabled    = {};
@@ -34,10 +34,13 @@
                     disabled[featureName] = true;
                 }
             }
-            $rootScope.toggles = {
-                env       : env,
-                features  : disabled
+            var config = {
+                env: env,
+                disabled: disabled
             };
+            toggles.set(config);
+            $rootScope.toggles = config;
+            return response;
         });
     }]);
 
@@ -47,11 +50,24 @@
         };
     }]);
 
-    app.directive('ignore', function () {
+    app.service("toggles", function(){
+        var config = {};
         return {
-            restrict : "C",
-            link: function (scope, element) {
-                element.remove();
+            set : function(param){
+                config = param;
+            },
+            get : function(){
+                return config;
+            }
+        }
+    });
+    app.directive('feature', function (toggles) {
+        return {
+            restrict : "A",
+            link: function (scope, element, attrs) {
+                var tog = toggles.get();
+                var disabled = tog.disabled[attrs.feature];
+                disabled ?  element.remove() : "";
             }
         };
     });
