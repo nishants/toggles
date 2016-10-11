@@ -24,7 +24,7 @@
 <script src="../lib/toggles.js"></script>
 <script>
     var app = angular.module("feature-toggle", ["toggles"]);
-    app.run(['$rootScope', '$http', 'toggles', function ($rootScope, $http, toggles) {
+    app.run(['$http', 'toggles', function ($http, toggles) {
         toggles.init($http.get("config/features.json"));
     }]);
 
