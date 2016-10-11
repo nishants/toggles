@@ -17,24 +17,24 @@ bower install toggles --save
 {
   "default": {
     "features"  : {
-      "feature-one-name": false,
-      "feaure-two-name" : false
+      "feature-one-name" : false,
+      "feature-two-name" : false
     }
   },
 
   "regression": {
     "url"      : "<regression-server-host>",
     "features" : {
-      "feature-one-name" : true,
-      "feaure-two-name"  : false
+      "feature-one-name"  : true,
+      "feature-two-name"  : false
     }
-  }
+  },
 
   "dev": {
     "url"      : "localhost",
     "features" : {
-      "feature-one-name" : true,
-      "feaure-two-name"  : true
+      "feature-one-name"  : true,
+      "feature-two-name"  : true
     }
   }
 }
@@ -42,13 +42,13 @@ bower install toggles --save
 
 - Bind features with elements in html
 ```html
-<div feature="feature-one-name">
-    <h1>Feaure One</h1>
-</div>
+  <div feature="feature-one-name">
+      <h1>Feature One</h1>
+  </div>
 
-<div feature="feature-two-name">
-    <h1>Feaure Two</h1>
-</div>
+  <div feature="feature-two-name">
+      <h1>Feature Two</h1>
+  </div>
 ```
 
 - if a feature is turned off, all elements associated with it will be removed from DOM.

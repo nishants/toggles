@@ -1,0 +1,24 @@
+{
+  "default": {
+    "features"  : {
+      "feature-one-name" : false,
+      "feature-two-name" : false
+    }
+  },
+
+  "regression": {
+    "url"      : "<regression-server-host>",
+    "features" : {
+      "feature-one-name"  : true,
+      "feature-two-name"  : false
+    }
+  },
+
+  "dev": {
+    "url"      : "localhost",
+    "features" : {
+      "feature-one-name"  : true,
+      "feature-two-name"  : true
+    }
+  }
+}

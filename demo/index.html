@@ -6,17 +6,24 @@
 </head>
 <body ng-app="feature-toggle" ng-controller="root">
 
+
 <div>
-    <label>Environment : </label>
-    <label ng-bind="toggles.features.env"></label>
-</div>
-<div>
-    <label>Features : </label>
-    <div ng-bind="toggles | jsonfied"></div>
+    <p ng-bind="toggles | jsonfied"></p>
 </div>
 
-<div feature="espp">
-    You cant see me.
+<h3>
+    Environment :  <span ng-bind="toggles.features.env"></span>
+</h3>
+
+<hr>
+<div >
+    <div feature="feature-one-name">
+        <h1>Feature One</h1>
+    </div>
+
+    <div feature="feature-two-name">
+        <h1>Feature Two</h1>
+    </div>
 </div>
 
 
@@ -33,7 +40,6 @@
     app.controller("root", ["$scope","toggles",function($scope, toggles){
         toggles.getConfig().then(function(features){
             $scope.toggles = {features: features};
-            window.toggles = {features: features};
         });
     }]);
 
