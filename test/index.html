@@ -21,27 +21,11 @@
 
 
 <script src="../support/angular1.5.8.min.js"></script>
+<script src="../lib/toggles.js"></script>
 <script>
-    var app = angular.module("feature-toggle", []);
+    var app = angular.module("feature-toggle", ["toggles"]);
     app.run(['$rootScope', '$http', 'toggles', function ($rootScope, $http, toggles) {
-        return $http.get("config/features.json").then(function(response){
-            var env         = "default",
-                features    = response.data[env]["features"],
-                disabled    = {};
-
-            for(var featureName in features){
-                if(!features[featureName]){
-                    disabled[featureName] = true;
-                }
-            }
-            var config = {
-                env: env,
-                disabled: disabled
-            };
-            toggles.set(config);
-            $rootScope.toggles = config;
-            return response;
-        });
+        toggles.init($http.get("config/features.json"));
     }]);
 
     app.filter("jsonfied", [function(){
@@ -50,27 +34,6 @@
         };
     }]);
 
-    app.service("toggles", function(){
-        var config = {};
-        return {
-            set : function(param){
-                config = param;
-            },
-            get : function(){
-                return config;
-            }
-        }
-    });
-    app.directive('feature', function (toggles) {
-        return {
-            restrict : "A",
-            link: function (scope, element, attrs) {
-                var tog = toggles.get();
-                var disabled = tog.disabled[attrs.feature];
-                disabled ?  element.remove() : "";
-            }
-        };
-    });
 </script>
 </body>
 </html>

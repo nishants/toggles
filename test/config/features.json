@@ -2,7 +2,7 @@
   "default": {
     "url"       : "localhost",
     "features"  : {
-      "espp"    : false,
+      "espp"    :false,
       "pre-ipp" : true
     }
   },
