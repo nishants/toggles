@@ -15,6 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "toggles": "^1.0.2"
+    "toggles": "^1.0.3"
   }
 }

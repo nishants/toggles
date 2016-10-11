@@ -25,7 +25,6 @@
 <script>
     var app = angular.module("feature-toggle", ["toggles"]);
 
-
     app.controller("root", ["$scope", "toggles", function ($scope, toggles) {
         toggles.getConfig().then(function (features) {
             $scope.toggles = {features: features};
