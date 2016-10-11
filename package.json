@@ -1,0 +1,27 @@
+{
+  "name": "toggles",
+  "version": "1.0.0",
+  "description": "angular module for featuer toggling",
+  "main": "toggles.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishants/toggles.git"
+  },
+  "keywords": [
+    "toggles",
+    "feauter",
+    "toggle",
+    "featuretoggle",
+    "feature-toggle",
+    "toggling"
+  ],
+  "author": "nishants",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nishants/toggles/issues"
+  },
+  "homepage": "https://github.com/nishants/toggles#readme"
+}
