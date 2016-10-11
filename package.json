@@ -4,7 +4,7 @@
   "description": "angular module for featuer toggling",
   "main": "lib/toggles.js",
   "scripts": {
-    "publish": "node_modules/bower/bin/bower register",
+    "publish": "node_modules/bower/bin/bower register toggles https://github.com/nishants/toggles.git",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
