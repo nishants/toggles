@@ -2,21 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>toggles demo</title>
+    <script src="../support/angular1.5.8.min.js"></script>
+    <script src="bower_components/toggles/lib/toggles.js"></script>
 </head>
+
 <body ng-app="feature-toggle" ng-controller="root">
 
-
-<div>
-    <p ng-bind="toggles | jsonfied"></p>
-</div>
-
-<h3>
-    Environment :  <span ng-bind="toggles.features.env"></span>
-</h3>
-
+<h3>Environment : <span ng-bind="toggles.features.env"></span></h3>
 <hr>
-<div >
+<div>
     <div feature="feature-one-name">
         <h1>Feature One</h1>
     </div>
@@ -27,26 +22,19 @@
 </div>
 
 
-<script src="../support/angular1.5.8.min.js"></script>
-<script src="../lib/toggles.js"></script>
 <script>
     var app = angular.module("feature-toggle", ["toggles"]);
+
     app.run(['$http', 'toggles', function ($http, toggles) {
         toggles.init($http.get("config/features.json").then(function(response){
             return response.data;
         }));
     }]);
 
-    app.controller("root", ["$scope","toggles",function($scope, toggles){
-        toggles.getConfig().then(function(features){
+    app.controller("root", ["$scope", "toggles", function ($scope, toggles) {
+        toggles.getConfig().then(function (features) {
             $scope.toggles = {features: features};
         });
-    }]);
-
-    app.filter("jsonfied", [function(){
-        return function(json){
-            return JSON.stringify(json);
-        };
     }]);
 
 </script>
